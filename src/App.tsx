@@ -611,18 +611,20 @@ export default function App() {
           </aside>
         </section>
 
-       {/* FORECAST SECTION */}
-<section className="mt-1">
-  <div className="bg-[#0e1424] rounded-2xl border border-slate-800 p-4 text-sm text-slate-400">
-   <strong>AI Forecast Module</strong><br/>
-Live routing forecasts require a Google Maps + Gemini API key.
-
-This logistics control tower demonstrates how shipment performance data can be transformed into operational KPIs, regional diagnostics, and network performance insights used by logistics and operations teams.
-    <br/><br/>
-    This dashboard currently demonstrates operational diagnostics using shipment performance data.
+      {/* FORECAST SECTION */}
+<section className="mt-4 bg-[#0e1424] rounded-2xl border border-slate-800 p-4">
+  <div className="text-sm text-slate-400">
+    <strong className="text-slate-200">AI Forecast Module</strong>
+    <p className="mt-2">
+      Live routing forecasts require a Google Maps + Gemini API key.
+    </p>
+    <p className="mt-2">
+      This logistics control tower demonstrates how shipment performance data
+      can be transformed into operational KPIs, regional diagnostics, and
+      network performance insights used by logistics and operations teams.
+    </p>
   </div>
 </section>
-
         {/* FOOTER */}
         <footer className="mt-1.5 text-[10px] text-slate-400 flex justify-between gap-2.5 opacity-85">
           <div className="max-w-[60%]">
