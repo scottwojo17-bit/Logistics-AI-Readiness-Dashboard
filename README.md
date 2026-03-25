@@ -48,13 +48,17 @@ This diagnostic layer is essential for organizations transitioning toward **AI-s
 
 ---
 
+---
+
 ## Run the Project Locally
 
 ### Prerequisites
 
-- Node.js
+- Node.js installed
 
 ### Install dependencies
 
 ```bash
 npm install
+
+npm run dev
