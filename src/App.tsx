@@ -289,9 +289,9 @@ export default function App() {
         Live Filters
       </div>
 
-      <span className="text-xs border border-red-500 text-red-400 px-3 py-1 rounded-full">
-        Network · Critical
-      </span>
+      <span className={`text-xs px-3 py-1 rounded-full border ${networkStatus.color}`}>
+  {networkStatus.label}
+</span>
     </div>
 
     {/* FILTER CONTROLS */}
@@ -302,7 +302,7 @@ export default function App() {
         onChange={(e) => setRegionFilter(e.target.value)}
         className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
       >
-        <option value="All">All U.S. Regions</option>
+        <option value="all">All U.S. Regions</option>
         <option value="West">West</option>
         <option value="Southwest">Southwest</option>
         <option value="Midwest">Midwest</option>
