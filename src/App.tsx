@@ -26,7 +26,9 @@ export default function App() {
   const [shipmentsData, setShipmentsData] = useState(dashboardData.shipments);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const enrichedShipments = shipmentsData;
+  const enrichedShipments = useMemo(() => {
+  return shipmentsData.map(deriveShipmentFields);
+}, [shipmentsData]);
 
   const filterOptions = useMemo(() => {
     const regions = Array.from(new Set(enrichedShipments.map(s => s.region || "Unknown"))).sort();
@@ -186,7 +188,7 @@ export default function App() {
         }));
         
         if (parsedData.length > 0) {
-          setShipmentsData(parsedData);
+          setShipmentsData(parsedData.map(deriveShipmentFields));
           resetFilters();
         } else {
           alert("No valid data found in the CSV file.");
