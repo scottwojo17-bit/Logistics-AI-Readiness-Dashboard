@@ -283,83 +283,86 @@ export default function App() {
 
 
   {/* RIGHT FILTER PANEL */}
-  <section className="bg-[#0a0f1e]/95 rounded-2xl border border-slate-800 p-4 flex flex-col gap-3 shadow-[0_18px_40px_rgba(0,0,0,0.6)] self-start">
+  <section className="relative z-20 bg-[#0a0f1e]/95 rounded-2xl border border-slate-800 p-4 flex flex-col gap-3 shadow-[0_18px_40px_rgba(0,0,0,0.6)] self-start">
 
-    <div className="flex items-center justify-between">
-      <div className="flex items-center gap-2 text-slate-300 text-sm">
-        <span className="h-2 w-2 bg-blue-400 rounded-full"></span>
-        Live Filters
-      </div>
-
-      <span className={`text-xs px-3 py-1 rounded-full border ${networkStatus.color}`}>
-  {networkStatus.label}
-</span>
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2 text-slate-300 text-sm">
+      <span className="h-2 w-2 bg-blue-400 rounded-full"></span>
+      Live Filters
     </div>
 
-    {/* FILTER CONTROLS */}
-    <div className="flex flex-wrap items-center gap-3 mt-2">
+    <span className={`text-xs px-3 py-1 rounded-full border ${networkStatus.color}`}>
+      {networkStatus.label}
+    </span>
+  </div>
 
-      <select
-        value={regionFilter}
-        onChange={(e) => setRegionFilter(e.target.value)}
-        className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
-      >
-        <option value="all">All U.S. Regions</option>
-        <option value="West">West</option>
-        <option value="Southwest">Southwest</option>
-        <option value="Midwest">Midwest</option>
-        <option value="Southeast">Southeast</option>
-        <option value="Northeast">Northeast</option>
-      </select>
+  <div className="relative z-20 flex flex-wrap items-center gap-3 mt-2">
 
-      <select
-        value={monthFilter}
-        onChange={(e) => setMonthFilter(e.target.value)}
-        className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
-      >
-        <option value="All">All Months</option>
-      </select>
+    <select
+      value={regionFilter}
+      onChange={(e) => setRegionFilter(e.target.value)}
+      className="relative z-20 bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
+    >
+      <option value="all">All U.S. Regions</option>
+      <option value="West">West</option>
+      <option value="Southwest">Southwest</option>
+      <option value="Midwest">Midwest</option>
+      <option value="Southeast">Southeast</option>
+      <option value="Northeast">Northeast</option>
+    </select>
 
-      <select
-        value={modeFilter}
-        onChange={(e) => setModeFilter(e.target.value)}
-        className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
-      >
-        <option value="All">All Modes</option>
-        <option value="Truckload">Truckload</option>
-        <option value="LTL">LTL</option>
-      </select>
+    <select
+      value={monthFilter}
+      onChange={(e) => setMonthFilter(e.target.value)}
+      className="relative z-20 bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
+    >
+      <option value="all">All Months</option>
+    </select>
 
-      <button
-  onClick={resetFilters}
-  className="bg-cyan-500 text-black px-4 py-2 rounded-lg text-sm font-medium"
->
-  Reset View
-</button>
+    <select
+      value={modeFilter}
+      onChange={(e) => setModeFilter(e.target.value)}
+      className="relative z-20 bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
+    >
+      <option value="all">All Modes</option>
+      <option value="Truckload">Truckload</option>
+      <option value="LTL">LTL</option>
+    </select>
 
-<button
-  onClick={() => fileInputRef.current?.click()}
-  className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
->
-  Upload CSV
-</button>
+    <button
+      type="button"
+      onClick={resetFilters}
+      className="bg-cyan-500 text-black px-4 py-2 rounded-lg text-sm font-medium"
+    >
+      Reset View
+    </button>
 
-<button
-  onClick={handleDownloadCsv}
-  className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
->
-  Save CSV
-</button>
+    <button
+      type="button"
+      onClick={() => fileInputRef.current?.click()}
+      className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+    >
+      Upload CSV
+    </button>
 
-<button
-  onClick={handleDownloadPdf}
-  className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
->
-  Save PDF
-</button>
-    </div>
+    <button
+      type="button"
+      onClick={handleDownloadCsv}
+      className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+    >
+      Save CSV
+    </button>
 
-  </section>
+    <button
+      type="button"
+      onClick={handleDownloadPdf}
+      className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+    >
+      Save PDF
+    </button>
+
+  </div>
+</section>
 
 </header>
 
