@@ -350,54 +350,55 @@ export default function App() {
           </section>
         </header>
 
-       {/* HERO KPI STRIP */}
-<section className="grid grid-cols-1 gap-3">
-  <div className="bg-[#0e1424] rounded-2xl border border-slate-800 p-4 text-sm text-slate-300">
-    KPI strip test rendering
-  </div>
-</section>
-          <KPICard 
-            title="Average Delivery Time"
-            subtitle="Door-to-door transit"
-            value={formatDays(overallKPIs.avgDeliveryDays)}
-            insight={`On-time: ${formatPercent(overallKPIs.onTimeRate)}`}
-            status={classifyStatus("avgDeliveryDays", overallKPIs.avgDeliveryDays)}
-            progress={Math.min(100, (overallKPIs.avgDeliveryDays || 0) / 7 * 100)}
-          />
-          <KPICard 
-            title="Transportation Cost / Mile"
-            subtitle="Network cost intensity"
-            value={formatCurrency(overallKPIs.transportationCostPerMile)}
-            insight={`Total cost: ${formatCurrency(overallKPIs.totalCost)}`}
-            status={classifyStatus("costPerMile", overallKPIs.transportationCostPerMile)}
-            progress={Math.min(100, (overallKPIs.transportationCostPerMile || 0) / 4 * 100)}
-          />
-          <KPICard 
-            title="Route Efficiency"
-            subtitle="Planned vs actual miles"
-            value={overallKPIs.routeEfficiency != null ? overallKPIs.routeEfficiency.toFixed(2) : "–"}
-            insight="Network efficiency vs planned"
-            status={classifyStatus("routeEfficiency", overallKPIs.routeEfficiency)}
-            progress={Math.min(100, (overallKPIs.routeEfficiency || 0) / 1.4 * 100)}
-          />
-          <KPICard 
-            title="Delay Rate"
-            subtitle="Late shipments share"
-            value={formatPercent(overallKPIs.delayRate)}
-            insight={`Late shipments: ${formatCount(Math.round(overallKPIs.delayRate * overallKPIs.totalShipments || 0))}`}
-            status={classifyStatus("delayRate", overallKPIs.delayRate)}
-            progress={Math.min(100, (overallKPIs.delayRate || 0) / 0.25 * 100)}
-          />
-          <KPICard 
-            title="Cost per Shipment"
-            subtitle="End-to-end logistics cost"
-            value={formatCurrency(overallKPIs.costPerShipment)}
-            insight={`Shipments: ${formatCount(overallKPIs.totalShipments)}`}
-            status={classifyStatus("costPerShipment", overallKPIs.costPerShipment)}
-            progress={Math.min(100, (overallKPIs.costPerShipment || 0) / 1000 * 100)}
-          />
-        </section>
+      {/* HERO KPI STRIP */}
+<section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
 
+  <KPICard 
+    title="Average Delivery Time"
+    subtitle="Door-to-door transit"
+    value={formatDays(overallKPIs.avgDeliveryDays)}
+    insight={`On-time: ${formatPercent(overallKPIs.onTimeRate)}`}
+    status={classifyStatus("avgDeliveryDays", overallKPIs.avgDeliveryDays)}
+    progress={Math.min(100, (overallKPIs.avgDeliveryDays || 0) / 7 * 100)}
+  />
+
+  <KPICard 
+    title="Transportation Cost / Mile"
+    subtitle="Network cost intensity"
+    value={formatCurrency(overallKPIs.transportationCostPerMile)}
+    insight={`Total cost: ${formatCurrency(overallKPIs.totalCost)}`}
+    status={classifyStatus("costPerMile", overallKPIs.transportationCostPerMile)}
+    progress={Math.min(100, (overallKPIs.transportationCostPerMile || 0) / 4 * 100)}
+  />
+
+  <KPICard 
+    title="Route Efficiency"
+    subtitle="Planned vs actual miles"
+    value={overallKPIs.routeEfficiency != null ? overallKPIs.routeEfficiency.toFixed(2) : "–"}
+    insight="Network efficiency vs planned"
+    status={classifyStatus("routeEfficiency", overallKPIs.routeEfficiency)}
+    progress={Math.min(100, (overallKPIs.routeEfficiency || 0) / 1.4 * 100)}
+  />
+
+  <KPICard 
+    title="Delay Rate"
+    subtitle="Late shipments share"
+    value={formatPercent(overallKPIs.delayRate)}
+    insight={`Late shipments: ${formatCount(Math.round(overallKPIs.delayRate * overallKPIs.totalShipments || 0))}`}
+    status={classifyStatus("delayRate", overallKPIs.delayRate)}
+    progress={Math.min(100, (overallKPIs.delayRate || 0) / 0.25 * 100)}
+  />
+
+  <KPICard 
+    title="Cost per Shipment"
+    subtitle="End-to-end logistics cost"
+    value={formatCurrency(overallKPIs.costPerShipment)}
+    insight={`Shipments: ${formatCount(overallKPIs.totalShipments)}`}
+    status={classifyStatus("costPerShipment", overallKPIs.costPerShipment)}
+    progress={Math.min(100, (overallKPIs.costPerShipment || 0) / 1000 * 100)}
+  />
+
+</section>
         {/* MAIN GRID */}
         <section className="grid grid-cols-1 xl:grid-cols-[2.1fr_1.3fr] gap-3.5 items-start">
           
