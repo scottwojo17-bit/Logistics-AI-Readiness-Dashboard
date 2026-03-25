@@ -219,137 +219,148 @@ export default function App() {
       <div id="dashboard-content" className="w-full max-w-[1480px] flex flex-col gap-5 p-2 rounded-2xl">
         
         {/* HERO HEADER */}
-        <header className="grid grid-cols-1 lg:grid-cols-[2.2fr_2.3fr] gap-5 items-stretch">
-          <section className="bg-gradient-to-br from-teal-400/10 to-blue-400/5 rounded-2xl p-5 border border-blue-400/40 shadow-[0_18px_40px_rgba(0,0,0,0.6)] relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_0,rgba(255,255,255,0.12),transparent_55%)] opacity-60 pointer-events-none mix-blend-screen"></div>
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-1.5 bg-slate-900/85 px-2.5 py-1 rounded-full border border-teal-400/70 text-[11px] uppercase tracking-widest text-teal-400">
-                <span>Logistics Control Center</span>
-              </div>
-              <h1 className="text-2xl mt-2 tracking-wide uppercase font-semibold">Network Delivery Performance</h1>
-              <p className="mt-1 text-[13px] text-slate-400">Five core KPIs driving cost, speed, and reliability across the U.S. shipment network.</p>
-              
-              <div className="flex flex-wrap gap-2.5 mt-3 text-[11px] text-slate-400">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/90 border border-slate-400/70">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shadow-[0_0_0_4px_rgba(45,212,191,0.25)]"></span>
-                  <span>Real-time shipment lens · Region & month filters</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/90 border border-slate-400/70">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_0_4px_rgba(96,165,250,0.25)]"></span>
-                  <span>Delay, efficiency, and cost trade-offs</span>
-                </div>
-              </div>
+       <header className="grid grid-cols-1 lg:grid-cols-[2.2fr_2.3fr] gap-5 items-start">
 
-              <div className="flex gap-3.5 mt-4 text-[11px]">
-                <div className="pr-3.5 border-r border-slate-400/30">
-                  <div className="text-slate-400 uppercase tracking-widest">Network Baseline</div>
-                  <div className="mt-0.5 font-semibold text-[13px]">Rolling 90 days</div>
-                </div>
-                <div className="pr-3.5 border-r border-slate-400/30">
-                  <div className="text-slate-400 uppercase tracking-widest">Filters</div>
-                  <div className="mt-0.5 font-semibold text-[13px]">
-                    {regionFilter === 'all' ? 'All regions' : regionFilter} · {monthFilter === 'all' ? 'All months' : monthFilter} · {modeFilter === 'all' ? 'All modes' : modeFilter}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-slate-400 uppercase tracking-widest">Routing Focus</div>
-                  <div className="mt-0.5 font-semibold text-[13px]">Route efficiency & delay rate</div>
-                </div>
-              </div>
-            </div>
-          </section>
+  {/* LEFT HERO PANEL */}
+  <section className="bg-gradient-to-br from-[#0b1324] to-[#0f1a33] border border-slate-800 rounded-2xl p-6 shadow-[0_18px_40px_rgba(0,0,0,0.6)]">
+    
+    <div className="mb-4">
+      <span className="text-xs tracking-widest uppercase text-cyan-400 border border-cyan-500/40 px-3 py-1 rounded-full">
+        Logistics Control Center
+      </span>
+    </div>
 
-          <section className="bg-[#0a0f1e]/95 rounded-2xl border border-slate-800 p-4 pb-4 flex flex-col gap-2.5 shadow-[0_18px_40px_rgba(0,0,0,0.6)]">
-            <div className="flex justify-between items-center text-[11px] text-slate-400 uppercase tracking-widest">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_0_4px_rgba(96,165,250,0.25)]"></span>
-                Live Filters
-              </span>
-              <span className={`px-2 py-1 rounded-full border text-[10px] uppercase tracking-widest ${networkStatus.color}`}>
-                {networkStatus.label}
-              </span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr_auto_auto_auto_auto] gap-2 items-end mt-1">
-              <div className="flex flex-col gap-1">
-                <label className="text-[11px] text-slate-400 uppercase tracking-widest">Region</label>
-                <select 
-                  value={regionFilter} 
-                  onChange={e => setRegionFilter(e.target.value)}
-                  className="text-xs px-2.5 py-1.5 rounded-full border border-slate-700 bg-[#1f2942] text-slate-50 outline-none hover:border-blue-400 focus:ring-2 focus:ring-teal-400/70 transition-all"
-                >
-                  <option value="all">All U.S. Regions</option>
-                  {filterOptions.regions.map(r => <option key={r} value={r}>{r}</option>)}
-                </select>
-              </div>
-              <div className="flex flex-col gap-1">
-                <label className="text-[11px] text-slate-400 uppercase tracking-widest">Month</label>
-                <select 
-                  value={monthFilter} 
-                  onChange={e => setMonthFilter(e.target.value)}
-                  className="text-xs px-2.5 py-1.5 rounded-full border border-slate-700 bg-[#1f2942] text-slate-50 outline-none hover:border-blue-400 focus:ring-2 focus:ring-teal-400/70 transition-all"
-                >
-                  <option value="all">All Months</option>
-                  {filterOptions.months.map(m => <option key={m} value={m}>{m}</option>)}
-                </select>
-              </div>
-              <div className="flex flex-col gap-1">
-                <label className="text-[11px] text-slate-400 uppercase tracking-widest">Mode</label>
-                <select 
-                  value={modeFilter} 
-                  onChange={e => setModeFilter(e.target.value)}
-                  className="text-xs px-2.5 py-1.5 rounded-full border border-slate-700 bg-[#1f2942] text-slate-50 outline-none hover:border-blue-400 focus:ring-2 focus:ring-teal-400/70 transition-all"
-                >
-                  <option value="all">All Modes</option>
-                  {filterOptions.modes.map(m => <option key={m} value={m}>{m}</option>)}
-                </select>
-              </div>
-              <button 
-                onClick={resetFilters}
-                className="text-xs px-3.5 py-1.5 rounded-full bg-gradient-to-br from-teal-400 to-blue-400 text-[#0b1120] font-semibold uppercase tracking-widest hover:from-teal-300 hover:to-blue-300 hover:shadow-[0_12px_32px_rgba(45,212,191,0.4)] transition-all h-[30px]"
-              >
-                Reset View
-              </button>
-              <input 
-                type="file" 
-                accept=".csv" 
-                ref={fileInputRef} 
-                onChange={handleFileUpload} 
-                className="hidden" 
-              />
-              <button 
-                onClick={() => fileInputRef.current?.click()}
-                className="text-xs px-3.5 py-1.5 rounded-full border border-slate-600 bg-slate-800 text-slate-50 font-semibold uppercase tracking-widest hover:bg-slate-700 hover:border-slate-500 transition-all h-[30px] flex items-center gap-1.5"
-              >
-                <Upload className="w-3.5 h-3.5" />
-                Upload CSV
-              </button>
-              <button 
-                onClick={handleDownloadCsv}
-                className="text-xs px-3.5 py-1.5 rounded-full border border-slate-600 bg-slate-800 text-slate-50 font-semibold uppercase tracking-widest hover:bg-slate-700 hover:border-slate-500 transition-all h-[30px] flex items-center gap-1.5"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                Save CSV
-              </button>
-              <button 
-                onClick={handleDownloadPdf}
-                disabled={isGeneratingPdf}
-                className="text-xs px-3.5 py-1.5 rounded-full border border-slate-600 bg-slate-800 text-slate-50 font-semibold uppercase tracking-widest hover:bg-slate-700 hover:border-slate-500 transition-all h-[30px] flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isGeneratingPdf ? (
-                  <>
-                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                    Saving...
-                  </>
-                ) : (
-                  <>
-                    <Download className="w-3.5 h-3.5" />
-                    Save PDF
-                  </>
-                )}
-              </button>
-            </div>
-          </section>
-        </header>
+    <h1 className="text-3xl font-semibold text-slate-100 leading-tight">
+      Network Delivery Performance
+    </h1>
+
+    <p className="mt-3 text-slate-400 text-sm max-w-md">
+      Five core KPIs driving cost, speed, and reliability across the U.S. shipment network.
+    </p>
+
+    <div className="mt-5 flex flex-col gap-3">
+
+      <div className="flex items-center gap-2 border border-slate-700 rounded-full px-4 py-2 w-fit">
+        <span className="h-2 w-2 bg-cyan-400 rounded-full"></span>
+        <span className="text-sm text-slate-300">
+          Real-time shipment lens · Region & month filters
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2 border border-slate-700 rounded-full px-4 py-2 w-fit">
+        <span className="h-2 w-2 bg-blue-400 rounded-full"></span>
+        <span className="text-sm text-slate-300">
+          Delay, efficiency, and cost trade-offs
+        </span>
+      </div>
+
+    </div>
+
+    <div className="mt-6 grid grid-cols-3 gap-6 text-sm text-slate-400">
+
+      <div>
+        <p className="uppercase text-xs text-slate-500 mb-1">Network Baseline</p>
+        <p className="text-slate-200">Rolling 90 days</p>
+      </div>
+
+      <div>
+        <p className="uppercase text-xs text-slate-500 mb-1">Filters</p>
+        <p className="text-slate-200">
+          {regionFilter} · {monthFilter} · {modeFilter}
+        </p>
+      </div>
+
+      <div>
+        <p className="uppercase text-xs text-slate-500 mb-1">Routing Focus</p>
+        <p className="text-slate-200">Route efficiency & delay rate</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  {/* RIGHT FILTER PANEL */}
+  <section className="bg-[#0a0f1e]/95 rounded-2xl border border-slate-800 p-4 flex flex-col gap-3 shadow-[0_18px_40px_rgba(0,0,0,0.6)] self-start">
+
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2 text-slate-300 text-sm">
+        <span className="h-2 w-2 bg-blue-400 rounded-full"></span>
+        Live Filters
+      </div>
+
+      <span className="text-xs border border-red-500 text-red-400 px-3 py-1 rounded-full">
+        Network · Critical
+      </span>
+    </div>
+
+    {/* FILTER CONTROLS */}
+    <div className="flex flex-wrap items-center gap-3 mt-2">
+
+      <select
+        value={regionFilter}
+        onChange={(e) => setRegionFilter(e.target.value)}
+        className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
+      >
+        <option value="All">All U.S. Regions</option>
+        <option value="West">West</option>
+        <option value="Southwest">Southwest</option>
+        <option value="Midwest">Midwest</option>
+        <option value="Southeast">Southeast</option>
+        <option value="Northeast">Northeast</option>
+      </select>
+
+      <select
+        value={monthFilter}
+        onChange={(e) => setMonthFilter(e.target.value)}
+        className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
+      >
+        <option value="All">All Months</option>
+      </select>
+
+      <select
+        value={modeFilter}
+        onChange={(e) => setModeFilter(e.target.value)}
+        className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-2 text-sm"
+      >
+        <option value="All">All Modes</option>
+        <option value="Truckload">Truckload</option>
+        <option value="LTL">LTL</option>
+      </select>
+
+      <button
+        onClick={handleResetFilters}
+        className="bg-cyan-500 text-black px-4 py-2 rounded-lg text-sm font-medium"
+      >
+        Reset View
+      </button>
+
+      <button
+        onClick={() => fileInputRef.current?.click()}
+        className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+      >
+        Upload CSV
+      </button>
+
+      <button
+        onClick={handleExportCSV}
+        className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+      >
+        Save CSV
+      </button>
+
+      <button
+        onClick={handleExportPDF}
+        className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+      >
+        Save PDF
+      </button>
+
+    </div>
+
+  </section>
+
+</header>
 
 {/* HERO KPI STRIP */}
 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
