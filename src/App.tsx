@@ -26,7 +26,7 @@ export default function App() {
   const [shipmentsData, setShipmentsData] = useState(dashboardData.shipments);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const enrichedShipments = useMemo(() => deriveShipmentFields(shipmentsData), [shipmentsData]);
+  const enrichedShipments = shipmentsData;
 
   const filterOptions = useMemo(() => {
     const regions = Array.from(new Set(enrichedShipments.map(s => s.region || "Unknown"))).sort();
