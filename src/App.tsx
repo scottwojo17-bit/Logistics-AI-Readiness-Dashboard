@@ -4,7 +4,6 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Papa from 'papaparse';
 import { dashboardData } from './data';
-import { ForecastSection } from './components/ForecastSection';
 import { 
   deriveShipmentFields, 
   aggregateKPIs, 
