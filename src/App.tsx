@@ -263,12 +263,14 @@ export default function App() {
         <p className="text-slate-200">Rolling 90 days</p>
       </div>
 
-      <div>
-        <p className="uppercase text-xs text-slate-500 mb-1">Filters</p>
-        <p className="text-slate-200">
-          {regionFilter} · {monthFilter} · {modeFilter}
-        </p>
-      </div>
+     <div>
+  <p className="uppercase text-xs text-slate-500 mb-1">Filters</p>
+  <p className="text-slate-200">
+    {regionFilter === 'all' ? 'All regions' : regionFilter} ·{' '}
+    {monthFilter === 'all' ? 'All months' : monthFilter} ·{' '}
+    {modeFilter === 'all' ? 'All modes' : modeFilter}
+  </p>
+</div>
 
       <div>
         <p className="uppercase text-xs text-slate-500 mb-1">Routing Focus</p>
@@ -329,33 +331,32 @@ export default function App() {
       </select>
 
       <button
-        onClick={handleResetFilters}
-        className="bg-cyan-500 text-black px-4 py-2 rounded-lg text-sm font-medium"
-      >
-        Reset View
-      </button>
+  onClick={resetFilters}
+  className="bg-cyan-500 text-black px-4 py-2 rounded-lg text-sm font-medium"
+>
+  Reset View
+</button>
 
-      <button
-        onClick={() => fileInputRef.current?.click()}
-        className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
-      >
-        Upload CSV
-      </button>
+<button
+  onClick={() => fileInputRef.current?.click()}
+  className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+>
+  Upload CSV
+</button>
 
-      <button
-        onClick={handleExportCSV}
-        className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
-      >
-        Save CSV
-      </button>
+<button
+  onClick={handleDownloadCsv}
+  className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+>
+  Save CSV
+</button>
 
-      <button
-        onClick={handleExportPDF}
-        className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
-      >
-        Save PDF
-      </button>
-
+<button
+  onClick={handleDownloadPdf}
+  className="border border-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm"
+>
+  Save PDF
+</button>
     </div>
 
   </section>
