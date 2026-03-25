@@ -26,7 +26,7 @@ export default function App() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const enrichedShipments = useMemo(() => {
-  return shipmentsData.map(deriveShipmentFields);
+  return deriveShipmentFields(shipmentsData);
 }, [shipmentsData]);
 
   const filterOptions = useMemo(() => {
