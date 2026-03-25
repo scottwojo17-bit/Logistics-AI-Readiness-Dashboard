@@ -611,10 +611,15 @@ export default function App() {
           </aside>
         </section>
 
-        {/* FORECAST SECTION */}
-        <section className="mt-1">
-          <ForecastSection shipments={shipmentsData} />
-        </section>
+       {/* FORECAST SECTION */}
+<section className="mt-1">
+  <div className="bg-[#0e1424] rounded-2xl border border-slate-800 p-4 text-sm text-slate-400">
+    <strong>AI Forecast Module</strong><br/>
+    Live routing forecasts require a Google Maps + Gemini API key.
+    <br/><br/>
+    This dashboard currently demonstrates operational diagnostics using shipment performance data.
+  </div>
+</section>
 
         {/* FOOTER */}
         <footer className="mt-1.5 text-[10px] text-slate-400 flex justify-between gap-2.5 opacity-85">
