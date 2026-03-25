@@ -352,9 +352,8 @@ export default function App() {
           </section>
         </header>
 
-      {/* HERO KPI STRIP */}
+{/* HERO KPI STRIP */}
 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-
   <KPICard
     title="Average Delivery Time"
     subtitle="Door-to-door transit"
@@ -405,9 +404,9 @@ export default function App() {
     status={classifyStatus("costPerShipment", overallKPIs.costPerShipment)}
     progress={Math.min(100, ((overallKPIs.costPerShipment ?? 0) / 1000) * 100)}
   />
-
 </section>
-        {/* MAIN GRID */}
+
+{/* MAIN GRID */}
         <section className="grid grid-cols-1 xl:grid-cols-[2.1fr_1.3fr] gap-3.5 items-start">
           
           <div className="grid grid-rows-[auto_auto] gap-3.5">
