@@ -1,5 +1,5 @@
 import { Search, Download, Loader2, FileText, Upload } from 'lucide-react';
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Papa from 'papaparse';
@@ -23,9 +23,8 @@ export default function App() {
   const [modeFilter, setModeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-  const [shipmentsData, setShipmentsData] = useState<any[]>([]);
+  const [shipmentsData, setShipmentsData] = useState(dashboardData.shipments);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const basePath = import.meta.env.BASE_URL;
 
   const enrichedShipments = useMemo(() => deriveShipmentFields(shipmentsData), [shipmentsData]);
 
