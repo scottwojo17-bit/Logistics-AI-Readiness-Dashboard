@@ -614,8 +614,10 @@ export default function App() {
        {/* FORECAST SECTION */}
 <section className="mt-1">
   <div className="bg-[#0e1424] rounded-2xl border border-slate-800 p-4 text-sm text-slate-400">
-    <strong>AI Forecast Module</strong><br/>
-    Live routing forecasts require a Google Maps + Gemini API key.
+   <strong>AI Forecast Module</strong><br/>
+Live routing forecasts require a Google Maps + Gemini API key.
+
+This logistics control tower demonstrates how shipment performance data can be transformed into operational KPIs, regional diagnostics, and network performance insights used by logistics and operations teams.
     <br/><br/>
     This dashboard currently demonstrates operational diagnostics using shipment performance data.
   </div>
