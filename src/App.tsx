@@ -350,8 +350,12 @@ export default function App() {
           </section>
         </header>
 
-        {/* HERO KPI STRIP */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+       {/* HERO KPI STRIP */}
+<section className="grid grid-cols-1 gap-3">
+  <div className="bg-[#0e1424] rounded-2xl border border-slate-800 p-4 text-sm text-slate-300">
+    KPI strip test rendering
+  </div>
+</section>
           <KPICard 
             title="Average Delivery Time"
             subtitle="Door-to-door transit"
