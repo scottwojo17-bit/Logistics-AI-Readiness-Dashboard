@@ -188,7 +188,7 @@ export default function App() {
         }));
         
         if (parsedData.length > 0) {
-          setShipmentsData(parsedData.map(deriveShipmentFields));
+          setShipmentsData(parsedData);
           resetFilters();
         } else {
           alert("No valid data found in the CSV file.");
