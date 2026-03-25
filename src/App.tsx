@@ -360,6 +360,13 @@ export default function App() {
     >
       Save PDF
     </button>
+    <input
+  ref={fileInputRef}
+  type="file"
+  accept=".csv"
+  onChange={handleFileUpload}
+  className="hidden"
+/>
 
   </div>
 </section>
